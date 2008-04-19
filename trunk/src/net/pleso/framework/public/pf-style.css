@@ -1,0 +1,663 @@
+/* Common */
+body { 
+	margin:0; 
+	padding:0; 
+	font-size:12px; 
+	font-family:"Lucida Grande","Bitstream Vera Sans",Verdana,Arial,sans-serif; 
+	color:#333; background:#fff; 
+}
+
+code {
+  font-size: small;
+}
+
+a:link, a:visited { color: #5b80b2; text-decoration:none; }
+a:hover { color: #036; }
+
+h1,h2,h3,h4,h5 { font-weight:bold; }
+h1 { font-size:18px; color:#666; padding:0 6px 0 0; margin:0 0 .2em 0; }
+h2 { font-size:16px; margin:1em 0 .5em 0; }
+h2.subhead { font-weight:normal;margin-top:0; }
+h3 { font-size:14px; margin:.8em 0 .3em 0; color:#666; font-weight:bold; }
+h4 { font-size:12px; margin:1em 0 .8em 0; padding-bottom:3px; }
+h5 { font-size:10px; margin:1.5em 0 .5em 0; color:#666; text-transform:uppercase; letter-spacing:1px; }
+
+input[disabled] {
+background: #FFFFFF!important;}
+
+/* Common GWT controls */
+
+.gwt-Button, .gwt-TextBox, .gwt-TextArea, .gwt-ListBox, .gwt-PasswordTextBox, .gwt-CheckBox, .gwt-SuggestBox { vertical-align:middle; font-family:"Lucida Grande", Verdana, Arial, sans-serif; font-weight:normal; font-size:11px; }
+.gwt-TextArea{ vertical-align:top !important; }
+.gwt-TextBox, .gwt-PasswordTextBox, .gwt-TextArea, .gwt-ListBox, .gwt-SuggestBox { border:1px solid #ccc; }
+
+.gwt-HTML { font-size:11px; color:#333; }
+
+.gwt-Button { 
+	background:white url(nav-bg.gif) bottom repeat-x; 
+	padding:3px; 
+	color:black;
+	border:1px solid #bbb;
+	border-color: #ddd #aaa #aaa #ddd;
+}
+
+.gwt-MenuBar {
+  background:white url(nav-bg-reverse.gif) 0 -10px repeat-x;
+  border: 1px solid #CCCCCC;
+  cursor: default;
+}
+
+.gwt-MenuBar .gwt-MenuItem {
+  cursor: default;
+  padding: 2px 8px 3px 8px; 
+  font-size:11px;  
+  color:#000; 
+}
+
+.gwt-MenuBar .gwt-MenuItem-selected {
+  background-color: #EFEFEF;
+} 
+
+.gwt-TabPanel {
+	width: 100%;
+	margin-top: 5px;
+}
+
+.gwt-TabPanelBottom {
+}
+	
+.gwt-TabBarFirst, .gwt-TabBarRest {
+  -moz-box-sizing: border-box;
+}
+
+.gwt-TabBar .pf-TabCaption {
+	font-size: 13px;
+}
+
+.gwt-TabBar .pf-TabCloseButtonHTML {
+  background-image: url('tab-delete.gif');
+  background-repeat: no-repeat;
+  height: 13px;
+  width: 14px;
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.gwt-TabBar {
+  background: #FFFFFF;
+  font-size: 13px; 
+  margin-top: 5px;
+}
+
+.gwt-TabBar .gwt-TabBarFirst {
+  height: 100%;
+  border-bottom: 1px solid #CCC;
+  padding-left: 3px;
+}
+
+.gwt-TabBar .gwt-TabBarRest {
+  border-bottom: 1px solid #CCC;
+  padding-right: 3px;
+}
+
+.gwt-TabBar .gwt-TabBarItem {
+  border-bottom: 1px solid #CCC;
+  cursor: pointer;
+  color:#999;
+  padding-left: 4px;
+}
+
+.gwt-TabBar .gwt-TabBarItem-selected {
+  font-weight: bold;
+  color: #000000;
+  background:white url(nav-bg-reverse.gif) 0 -10px repeat-x;
+  border-top: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #FFFFFF;
+  padding-left: 2px;
+  cursor: default;
+}
+
+/* DataGrid and DataGridWrapper */
+.pf-dataGrid {
+	width: 100%;
+	font-size: 11px;
+	text-align: left;
+	color: #666666;
+	border: solid 1px #ccc;
+	border-collapse: collapse;
+}
+
+.pf-dataGrid td {
+	border: solid 1px #ccc;
+}
+
+.pf-dataGrid-headerCell {
+	border: solid 1px #ccc;
+	height: 25px;
+	background-image: url("nav-bg.gif");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	font-weight: bold;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.pf-dataGrid-rowCell {
+	border: solid 1px #ccc;
+	padding: 4px;
+	padding-left: 4px;
+	cursor: pointer;
+}
+
+.pf-dataGrid-row {
+	background-color: #ffffff;
+}
+
+.pf-dataGrid-selectedRow {
+	background-color: #edf3fe;
+}
+
+
+.pf-dataGridWrapper {
+	width: 100%;
+	height: 25px;
+	margin-top: 5px;
+}
+
+.pf-statusPanel {
+	border: solid 2px #ccc;
+	background-color: #ffffff;
+}
+
+.pf-statusPanel-label {
+	color: #666666;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 4px 4px 4px 4px;
+}
+
+.pf-statusPanel-imageHTML {
+	background-image: url("loading.gif");
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	margin-left: 4px;
+	margin-top: 4px;
+}
+
+.pf-pager {
+	height: 25px;
+}
+
+.pf-pager-status {
+	font-size: 14px;
+	padding-right: 4px;
+}
+
+.pf-sortableHeader-orderby-up {
+	background-image: url("arrow-up.gif");
+	background-repeat: no-repeat;
+	width: 9px;
+    height: 100%;
+	cursor: pointer;
+    background-position: center;
+}
+
+.pf-sortableHeader-orderby-down {
+	background-image: url("arrow-down.gif");
+	background-repeat: no-repeat;
+	width: 9px;
+	height: 100%;
+	cursor: pointer;
+    background-position: center;
+}
+
+.pf-sortableHeader-orderby-none {
+	width: 9px;
+	height: 100%;
+}
+
+.pf-sortableHeader-text {
+	font-weight: bold;
+	font-size: 11px;
+	cursor: pointer;
+	margin-right: 4px;
+}
+
+.pf-sortableHeader td {
+    border: none;
+}
+
+.pf-booleanWidget-true {
+	background-image: url("icon-yes.gif");
+	background-repeat: no-repeat;
+	}
+	
+.pf-booleanWidget-false {
+	background-image: url("icon-no.gif");
+	background-repeat: no-repeat;
+}
+
+/* Action button panel */
+
+.pf-actionButtonPanel {
+	height: 40px;
+	border: solid 1px #CCCCCC;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.pf-actionButtonPanel .gwt-Button {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 8px;
+	height: 22px;
+}
+
+/* Custom reference book */
+
+.pf-customrb {
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+}
+
+.pf-customrb-header {
+	font-weight: bold;
+	font-size: 18px; 
+	color: #666666;
+	margin-top: 10px;
+}
+
+.pf-customrb .pf-actionButtonPanel {
+   margin-bottom: 5px;
+}
+
+/* Custom form */
+
+.pf-custom-form {
+	background-color:#f5fdfc;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.pf-custom-form-header {
+	font-weight: bold;
+	font-size: 18px; 
+	color: #666666;
+}
+
+.pf-custom-form-status {
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+.pf-custom-form-datagroups-grid {
+	border: solid 1px #ccc;
+	margin-top: 5px;
+	width: 100%;
+}
+
+.pf-custom-form .pf-actionButtonPanel .gwt-Button {
+	width: 160px;
+}
+
+.pf-custom-form .pf-actionButtonPanel {
+	margin-bottom: 5px;
+}
+
+.pf-custom-form-datagroups-grid-cell {
+	vertical-align: top;
+	width: 50%;
+}
+
+/* Form items group */
+
+.pf-form-items-group {
+	width: 100%;
+	padding-left: 5px;
+    padding-right: 5px;
+}
+
+.pf-form-items-group-header {
+	font-weight: bold;
+	font-size: 17px;
+	text-decoration: underline;
+	color: #666;
+	padding-left: 3px;
+}
+
+/* Form items widget */
+
+.pf-form-items-widget {
+	width: 100%;
+}
+
+.pf-form-items-widget-caption-column {
+	width: 120px;
+}
+
+.pf-form-items-widget-row {
+	height: 35px;
+}
+
+.pf-form-items-widget-item-caption {
+	font-weight: bold;
+	font-size: 11px;
+}
+
+/* Error message box */
+
+.pf-error-message {
+	border: 2px solid #CCCCCC;
+	background-color: #FFFFFF;
+	width: 250px;
+}
+
+.pf-error-message .Caption {
+	background-color: #417690;
+	font-size: 11px;
+	color: #F4F379;
+	padding: 2px;
+	padding-bottom: 2px;
+	font-weight: bold;
+	border-bottom: 1px solid #CCCCCC;
+	cursor: move;
+}
+
+.pf-error-message-scroll-stack-close {
+	height: 0px;
+	width: 250px;
+	border-top: 1px solid #CCCCCC;
+}
+
+.pf-error-message-scroll-stack-open {
+	height: 150px;
+	width: 250px;
+	border-top: 1px solid #CCCCCC;
+}
+
+.pf-error-message .gwt-Button {
+	background:white url(nav-bg.gif) bottom repeat-x; 
+	color: black;
+	border:1px solid #bbb;
+	border-color: #ddd #aaa #aaa #ddd;
+	height: 20px;
+	width: 100%;
+}
+
+.pf-error-message-error-text {
+	padding: 2px 2px 2px 2px;
+	font-size: 12px;
+}
+
+/* Calendar widget */
+
+.CalendarWidget {
+  border: 1px solid #ACA899;
+  background-color: #FFFFFF;
+}
+
+.CalendarWidget .navbar {
+  width: 100%;
+  background-color: #C3D9FF;
+  vertical-align: middle;
+  border-bottom: 1px solid #ACA899;
+}
+
+.CalendarWidget .navbar .gwt-Button {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.CalendarWidget .table {
+  font: 10pt sans-serif;
+  text-align: center;
+}
+
+.CalendarWidget .weekheader {
+  background-color: #ACA899;
+}
+
+.CalendarWidget .weekheader .days {
+  width: 3em;
+}
+
+.CalendarWidget .cell {
+  cursor:pointer;
+}
+
+.CalendarWidget .cell .gwt-HTML {
+  border: 1px solid #ACA899;
+}
+
+.CalendarWidget .cell .gwt-HTML span {
+  width: 100%;
+  height: 100%;
+  line-height: 2em;
+}
+
+.CalendarWidget .today .gwt-HTML {
+  background-color: #C3D9FF;
+}
+
+.CalendarWidget .day .gwt-HTML {
+  border: 1px solid #C3D9FF;
+} 
+
+/* Data controls */
+
+.pf-requiredSignControl {
+	width: 10px;
+	color: #FF0000;
+}
+
+.pf-validationErrorControl {
+	font-size: 11px;
+	text-align: left;
+	font-weight: bold;
+	width: 100%;
+	color: #FFFFFF;
+	background-color: #FF0000;
+	padding-left: 5px;
+}
+
+.pf-textBoxDataControl {
+	width: 100%;
+}
+
+.pf-textBoxDataControl .gwt-TextBox {
+	width: 100%;
+    border: 1px solid #ccc;
+}
+
+.pf-calendarDataControl {
+	width: 100%;
+}
+
+.pf-calendarPopup .gwt-TextBox {
+	width: 100%;
+	border:1px solid #ccc;
+}
+	
+.pf-calendarPopup {
+	width: 100%;
+}
+
+.pf-calendar-icon-html {
+	margin-top: 2px;
+	background-image: url(icon_calendar.gif);
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.pf-dateRangeControl {
+	width: 100%;
+}
+
+.pf-booleanComboboxControl {
+	width: 100%;
+}
+
+.pf-booleanCheckboxControl {
+	width: 100%;
+}
+
+.pf-enumComboboxControl {
+	width: 100%;
+}
+
+.pf-infoDataControl {
+	font-size: 11px;
+	padding-left: 10px;
+}
+
+.pf-floatRangeControl {
+	width: 100%;
+}
+
+.pf-floatDataControl {
+	width: 100%
+}
+
+.pf-floatDataControl .gwt-TextBox {
+	width: 100%;
+    border: 1px solid #ccc;
+}
+
+.pf-integerDataControl {
+	width: 100%;
+}
+
+.pf-integerDataControl .gwt-TextBox {
+	width: 100%;
+    border: 1px solid #ccc;
+}
+
+.pf-selectorControl {
+	width: 100%;
+}
+
+.pf-selectorControl .gwt-TextBox {
+	width: 100%;
+}
+
+.pf-selectorControl .gwt-Button {
+	margin-left: 5px;
+	width: 70px;
+	height: 22px;
+}
+
+.pf-textAreaDataControl {
+	width: 100%;
+}
+
+.pf-textAreaDataControl .gwt-TextArea {
+	width: 100%;
+}
+
+.pf-timeRangeControl {
+	width: 100%;
+}
+
+
+/* Suggest box selector control */
+
+.gwt-SuggestBox {
+	width: 100%;
+}
+
+.gwt-SuggestBoxPopup { 
+	background-color: white;
+	border: 1px solid #CCC; 
+}
+
+.gwt-SuggestBoxPopup .item { 
+	cursor: pointer;
+	padding: 2px 8px 3px 8px; 
+  	font-size:11px;  
+  	color:#000; 
+  	background-color: white;
+ }
+.gwt-SuggestBoxPopup .item-selected {
+	cursor: pointer;
+	background-color: #EFEFEF;
+ }
+ 
+.pf-suggestBox-selectorControl {
+	width: 100%;
+}
+
+/* Sliders */
+
+.pf-slider-titlePanel {
+	border-bottom: 1px solid #CCCCCC;
+	height: 23px;
+	background-image: url("nav-bg.gif");
+	background-repeat: repeat-x;
+}
+
+.pf-main-slider {
+	width: 100%;
+}
+
+.pf-slider {
+	width: 100%;
+	border: 1px solid #CCCCCC;
+	margin-top: 10px;
+	background-color:#faf5fd;
+}
+
+.pf-slider-arrow-close {
+	font-size: 8px;
+	background-image: url('slider-arrow-closed.gif');
+	width: 13px;
+	height: 13px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.pf-slider-arrow-open {
+	font-size: 8px;
+	background-image: url('slider-arrow-open.gif');
+	width: 13px;
+	height: 13px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.pf-slider-caption {
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.pf-slider-caption-disabled {
+	font-size: 11px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 5px;
+	color: #808080;
+}
+
+.pf-slider-arrow-disabled {
+	font-size: 8px;
+	background-image: url('slider-arrow-disabled.gif');
+	width: 13px;
+	height: 13px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-left: 5px;
+}

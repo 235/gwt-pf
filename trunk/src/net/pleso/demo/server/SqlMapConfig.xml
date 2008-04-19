@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	
+  <typeAlias alias="BigInt" type="net.pleso.framework.client.dal.types.BigInt"/>
+  <typeAlias alias="StringTime" type="net.pleso.framework.client.dal.types.StringTime"/>
+  <typeAlias alias="SearchParams" type="net.pleso.framework.client.dal.SelectParams"/>
+
+  <typeHandler javaType="net.pleso.framework.client.dal.types.BigInt" callback="net.pleso.demo.server.BigIntHandlerCallback"/> 
+  <typeHandler javaType="net.pleso.framework.client.dal.types.StringTime" callback="net.pleso.demo.server.StringTimeHandlerCallback"/>
+  <typeHandler javaType="Float" callback="net.pleso.demo.server.FloatHandlerCallback"/>
+	
+  <!-- Configure a built-in transaction manager.  If you're using an 
+       app server, you probably want to use its transaction manager 
+       and a managed datasource -->
+  <transactionManager type="JDBC" commitRequired="true">
+    <dataSource type="SIMPLE">
+      <property name="JDBC.Driver" value="org.postgresql.Driver"/>
+      <property name="JDBC.ConnectionURL" value="jdbc:postgresql://${host}:${port}/${database}"/>
+      <property name="JDBC.Username" value="${login}"/>
+      <property name="JDBC.Password" value="${password}"/>
+    </dataSource>
+  </transactionManager>
+ 
+
+  <!-- List the SQL Map XML files. They can be loaded from the 
+       classpath, as they are here (com.domain.data...)--> 
+   <sqlMap resource="net/pleso/demo/server/auth/Auth.xml"/>
+   <sqlMap resource="net/pleso/demo/server/bank/Bank.xml"/>    
+   <sqlMap resource="net/pleso/demo/server/operation/Operation.xml"/>
+   <sqlMap resource="net/pleso/demo/server/client/Client.xml"/>
+
+</sqlMapConfig>

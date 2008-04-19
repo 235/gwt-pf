@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="test" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+	<classpathentry path="JUNIT_HOME/junit.jar" kind="var"/>
+	<classpathentry path="GWT_HOME/gwt-user.jar" kind="var"/>
+	<classpathentry path="lib/ibatis.jar" kind="lib"/>
+	<classpathentry path="lib/log4j.jar" kind="lib"/>
+	<classpathentry path="lib/postgresql.jar" kind="lib"/>
+	<classpathentry path="bin" kind="output"/>
+</classpath>

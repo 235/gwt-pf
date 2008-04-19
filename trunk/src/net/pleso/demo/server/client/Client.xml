@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Client">
+
+  <typeAlias alias="Client" type="net.pleso.demo.client.dal.client.Client"/>
+  <typeAlias alias="SelectParams" type="net.pleso.framework.client.dal.SelectParams"/>
+
+  <resultMap id="ClientResult" class="Client">
+	<result property="cl_id" column="cl_id"/>
+	<result property="cl_name" column="cl_name"/>
+	<result property="cl_bank_id" column="cl_bank_id"/>
+	<result property="bank_name" column="bank_name"/>
+	<result property="cl_birthday" column="cl_birthday"/>
+	<result property="cl_money" column="cl_money"/>
+	<result property="cl_sex" column="cl_sex"/>
+  </resultMap>
+  
+  <select id="selectClient" resultMap="ClientResult" parameterClass="SelectParams" > 
+ 	select * from client_view
+ 	<isNotEmpty property="orderByColumnName">
+     order by $orderByColumnName$ $orderByDirectionString$
+    </isNotEmpty>
+ 	limit #limit# offset #offset#	
+  </select>
+  
+  <select id="selectCountClient" resultClass="int">
+    select count(cl_id) from client_view
+  </select>
+  
+  <select id="searchClient" resultMap="ClientResult" parameterClass="SelectParams" > 
+ 	select * from search_client(
+		#searchRow.cl_id#,
+		#searchRow.cl_name#,
+		#searchRow.cl_bank_id#,
+		#searchRow.bank_name#,
+		#searchRow.cl_birthday_start#,
+		#searchRow.cl_birthday_end#,
+		#searchRow.cl_money_start#,
+		#searchRow.cl_money_end#,
+		#searchRow.cl_sex#
+	)
+ 	<isNotEmpty property="orderByColumnName">
+     order by $orderByColumnName$ $orderByDirectionString$
+    </isNotEmpty>
+ 	limit #limit# offset #offset#	
+  </select>
+  
+  <select id="searchCountClient" resultClass="int" parameterClass="Client">
+    select count(cl_id) from search_client(
+		#cl_id#,
+		#cl_name#,
+		#cl_bank_id#,
+		#bank_name#,
+		#cl_birthday_start#,
+		#cl_birthday_end#,
+		#cl_money_start#,
+		#cl_money_end#,
+		#cl_sex#
+	)
+  </select>
+  
+  <select id="selectSingleClient" resultMap="ClientResult" parameterClass="Integer" > 
+ 	select * from client_view
+ 	where cl_id = #cl_id#
+  </select>
+  
+  <insert id="insertClient" parameterClass="Client">
+    insert into client (
+		cl_name,
+		cl_bank_id,
+		cl_birthday,
+		cl_money,
+		cl_sex
+    )
+    values (
+      	#cl_name#,
+		#cl_bank_id#,
+		#cl_birthday#,
+		#cl_money#,
+		#cl_sex#
+    )
+  </insert>
+  
+  <delete id="deleteClient" parameterClass="Integer">
+  	delete from client where cl_id = #cl_id#
+  </delete>
+  
+  <update id="updateClient" parameterClass="Client">
+    update client set
+		cl_name = #cl_name#,
+		cl_bank_id = #cl_bank_id#,
+		cl_birthday = #cl_birthday#,
+		cl_money = #cl_money#,
+		cl_sex = #cl_sex#
+    where
+      cl_id = #cl_id#
+  </update>
+  
+</sqlMap>

@@ -1,0 +1,30 @@
+Install GWT-PF
+
+To use GWT-PF in your GWT existing project do following 
+(instructions are for an Eclipse project, but should work for 
+any IDE with reasonable adjustments):
+
+1. Unpack files, and put them in an any folder of your GWT project. 
+Good place would be "lib" folder.
+
+2. Setup GWT for your project.
+In Eclipse go to "Project->Properties", "Java Build Path" menu item
+and "Libraries" tab, push "Add JARs..." button - find and select
+gwt-pf-core.jar, press OK. This would add the source code of the
+distribution to your project. Now you should be able to use the
+libraries in your code. Repeat same that for gwt-pf-ui.jar.
+
+3. In Eclipse in the "Package Explorer", select file
+"projectName.gwt.xml (should be in package "com.companyName"). Under
+the line "<inherits name='com.google.gwt.user.User'/>"  add
+"<inherits name='net.pleso.framework.plesoframework'/>"
+
+4. In root folder of your project find and edit "projectName-compile.cmd" 
+and "projectName-shell.cmd" files. On the first
+line you will see a command similar to:
+
+"@java -cp "%~dp0\src;--PATH--;--PATH--;"
+
+Those --PATH-- are "gwt-user.jar" and "gwt-dev-windows.jar". Add a new path to 
+"gwt-pf-core.jar" and "gwt-pf-ui.jar" in both files. 
+After this, you'll be able to run project both in hosted mode and web mode.

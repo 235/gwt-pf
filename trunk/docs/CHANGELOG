@@ -1,0 +1,12 @@
+0.2.1b:
+- minor bug fixed in gwt-pf demo
+- minor bug fixed in gwt-pf
+- fixed bug "transfer select parameters from reference book to grid"
+see: http://sourceforge.net/forum/forum.php?thread_id=1832168&forum_id=698876
+thanks Don  (http://sourceforge.net/users/dbchap/)
+- integration SuggestBoxSelectorControl based on SuggestBox 
+(http://code.google.com/webtoolkit/documentation/com.google.gwt.user.client.ui.SuggestBox.html)
+from GWT. Example of using can be found on demo. 
+
+0.2b:
+Initial release

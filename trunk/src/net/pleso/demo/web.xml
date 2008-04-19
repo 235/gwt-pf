@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+		
+        <servlet>
+                <servlet-name>AuthService</servlet-name>
+        		<servlet-class>
+					net.pleso.demo.server.auth.DemoAuthServiceImpl
+				</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>AuthService</servlet-name>
+                <url-pattern>/auth</url-pattern>
+        </servlet-mapping>
+		
+		<servlet>
+                <servlet-name>BankService</servlet-name>
+        		<servlet-class>
+					net.pleso.demo.server.bank.BankServiceImpl
+				</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>BankService</servlet-name>
+                <url-pattern>/bank</url-pattern>
+        </servlet-mapping>
+		
+		<servlet>
+                <servlet-name>OperationService</servlet-name>
+        		<servlet-class>
+					net.pleso.demo.server.operation.OperationServiceImpl
+				</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>OperationService</servlet-name>
+                <url-pattern>/operation</url-pattern>
+        </servlet-mapping>
+		
+		<servlet>
+                <servlet-name>ClientService</servlet-name>
+        		<servlet-class>
+					net.pleso.demo.server.client.ClientServiceImpl
+				</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>ClientService</servlet-name>
+                <url-pattern>/client</url-pattern>
+        </servlet-mapping>
+		
+</web-app> 
