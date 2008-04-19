@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Bank">
+
+  <typeAlias alias="Bank" type="net.pleso.demo.client.dal.bank.Bank"/>
+  <typeAlias alias="SelectParams" type="net.pleso.framework.client.dal.SelectParams"/>
+
+  <resultMap id="BankResult" class="Bank">
+    <result property="bank_id" column="bank_id"/>
+    <result property="bank_name" column="bank_name"/>
+    <result property="bank_mfo" column="bank_mfo"/>
+  </resultMap>
+ 
+  <select id="selectBank" resultMap="BankResult" parameterClass="SelectParams" > 
+ 	select * from bank
+ 	<isNotEmpty property="orderByColumnName">
+     order by $orderByColumnName$ $orderByDirectionString$
+    </isNotEmpty>
+ 	limit #limit# offset #offset#	
+  </select>
+  
+  <select id="selectCountBank" resultClass="int">
+    select count(bank_id) from bank
+  </select>
+  
+  <select id="searchBank" resultMap="BankResult" parameterClass="SelectParams" > 
+ 	select * from search_bank(#searchRow.bank_name#)
+ 	<isNotEmpty property="orderByColumnName">
+     order by $orderByColumnName$ $orderByDirectionString$
+    </isNotEmpty>
+ 	limit #limit# offset #offset#	
+  </select>
+  
+  <select id="searchCountBank" resultClass="int" parameterClass="Bank">
+    select count(bank_id) from search_bank(#bank_name#)
+  </select>
+  
+  <select id="selectSingleBank" resultMap="BankResult" parameterClass="Integer" > 
+ 	select * from bank
+ 	where bank_id = #bank_id#
+  </select>
+  
+  <insert id="insertBank" parameterClass="Bank">
+    insert into bank (
+      bank_name,
+      bank_mfo 
+    )
+    values (
+      #bank_name#,
+      #bank_mfo#
+    )
+  </insert>
+  
+  <delete id="deleteBank" parameterClass="Integer">
+  	delete from bank where bank_id = #bank_id#
+  </delete>
+  
+  <update id="updateBank" parameterClass="Bank">
+    update bank set
+      bank_name =  #bank_name#,
+      bank_mfo = #bank_mfo#
+    where
+      bank_id = #bank_id#
+  </update>
+  
+</sqlMap>

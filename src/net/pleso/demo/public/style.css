@@ -1,0 +1,47 @@
+.gwt-DialogBox {
+	border: 1px solid #CCCCCC;
+	background-color: #FFFFFF;
+}
+
+.gwt-DialogBox .Caption {
+	background-color: #417690;
+	color: #F4F379;
+	padding: 4px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	cursor: default;
+}
+
+.admin-panel-header {
+	height: 30px;
+	width: 100%;
+	background-color: #417690;
+	cursor: default;
+	color: #F4F379;
+}
+
+.admin-panel-header .header-text {
+	padding: 4px;
+	padding-bottom: 8px;
+	font-weight: bold;
+	color: #F4F379;
+}
+
+.admin-panel-header-user-panel {
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 6px;
+	margin-right: 2px;
+}
+
+.admin-panel-header .user-text {
+	font-size: 11px;
+	color: #FFFFCC;
+}
+
+.admin-panel-header .user-logout {
+	font-size: 11px;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #FFFFCC;
+}

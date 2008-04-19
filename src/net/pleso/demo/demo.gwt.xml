@@ -1,0 +1,25 @@
+<module>
+
+	<!-- Inherit the core Web Toolkit stuff.                  -->
+	<inherits name='com.google.gwt.user.User'/>
+	
+	<!-- Pleso auth library.                  -->
+	<inherits name='net.pleso.auth.plesoauth'/>
+	
+	<!-- Pleso gwt framework library.                  -->
+	<inherits name='net.pleso.framework.plesoframework'/>
+	
+	<!-- i18n.                   -->
+	<inherits name="com.google.gwt.i18n.I18N" />
+
+	<!-- Specify the app entry point class.                   -->
+	<entry-point class='net.pleso.demo.client.demo'/>
+	
+	<!-- Pleso auth library service implementation. -->
+	<servlet path='/auth' class='net.pleso.demo.server.auth.DemoAuthServiceImpl'/>
+	
+	<servlet path='/bank' class='net.pleso.demo.server.bank.BankServiceImpl'/>
+	<servlet path='/operation' class='net.pleso.demo.server.operation.OperationServiceImpl'/>
+	<servlet path='/client' class='net.pleso.demo.server.client.ClientServiceImpl'/>
+  
+</module>

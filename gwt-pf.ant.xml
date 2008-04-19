@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="gwt-pf" default="compile" basedir=".">
+  <description>
+    GWT-PF demo build file.
+  </description>
+  
+  <property name="gwt.home" location="C:/Program Files/eclipse/gwt"/>
+
+  <!-- set classpath -->
+  <path id="project.class.path">
+    <pathelement path="${java.class.path}/"/>
+    <pathelement path="${gwt.home}/gwt-user.jar"/>
+  	<fileset dir="lib" includes="*.jar"/>
+    <!-- Additional dependencies (such as junit) go here -->
+  </path>
+	
+  <target name="clean">
+	<!-- Delete the bin directory tree -->
+  <delete>
+	<fileset dir="bin" includes="**/*"/>
+	<dirset dir="bin" includes="**/*"/>
+  	<dirset dir="docs/framework" includes="**/*"/>
+  	<fileset dir="docs/framework" includes="**/*"/>
+  </delete>
+  </target>
+
+  <target name="compile" depends="clean" description="Compile src to bin">
+    <mkdir dir="bin"/>
+    <javac srcdir="src:test" destdir="bin" includes="**" debug="on" debuglevel="lines,vars,source" source="1.4">
+      <classpath refid="project.class.path"/>
+    </javac>
+  </target>
+
+  <target name="package-framework" depends="compile" description="Package up the framework as a jar">
+    <jar destfile="gwt-pf-ui.jar">
+      <fileset dir="bin">
+		<include name="net/pleso/framework/client/localization/**/*.class"/>
+		<include name="net/pleso/framework/client/ui/**/*.class"/>
+		<include name="net/pleso/framework/client/util/**/*.class"/>
+      </fileset>
+      <fileset dir="src">
+        <include name="net/pleso/framework/client/localization/**"/>
+		<include name="net/pleso/framework/client/ui/**"/>
+		<include name="net/pleso/framework/client/util/**"/>
+		<include name="net/pleso/framework/public/**"/>
+		<include name="net/pleso/framework/plesoframework.gwt.xml"/>
+      </fileset>
+    </jar>
+	
+	<jar destfile="gwt-pf-core.jar">
+      <fileset dir="bin">
+		<include name="net/pleso/framework/client/bl/**/*.class"/>
+		<include name="net/pleso/framework/client/dal/**/*.class"/>
+      </fileset>
+      <fileset dir="src">
+        <include name="net/pleso/framework/client/bl/**"/>
+		<include name="net/pleso/framework/client/dal/**"/>
+      </fileset>
+    </jar>
+  </target>
+
+  <target name="javadoc">
+        <javadoc 
+			access="public" 
+			author="false"
+			destdir="docs/framework" 
+			windowtitle="pleso.net: GWT-PF project"
+			nodeprecated="false" 
+			nodeprecatedlist="false" 
+			noindex="false" 
+			nonavbar="false" 
+			notree="false" 
+			classpath="${gwt.home}/gwt-user.jar;"
+        	packagenames="net.pleso.framework.client.ui.custom,net.pleso.framework.client.bl.providers,net.pleso.framework.client.dal.impl,net.pleso.auth.server,net.pleso.framework.client.bl.forms,net.pleso.framework.client.ui.interfaces,net.pleso.framework.client.util,net.pleso.framework.client.dal.db.types,net.pleso.framework.client.bl.forms.items.impl,net.pleso.framework.client.bl.actions,net.pleso.framework.client.bl.auth,net.pleso.framework.client.ui.custom.controls,net.pleso.framework.client.ui.controls.datagrid,net.pleso.framework.client.ui.controls.tabcontrol,net.pleso.framework.client.ui.windows,net.pleso.framework.client.ui,net.pleso.framework.client.dal.types,net.pleso.framework.client.dal,net.pleso.framework.client.bl.rb.impl,net.pleso.auth.client,net.pleso.framework.client.bl.rb.columns,net.pleso.framework.client.localization,net.pleso.framework.client.bl,net.pleso.framework.client.ui.controls,net.pleso.framework.client.bl.rb.columns.impl,net.pleso.framework.client.ui.custom.controls.data,net.pleso.framework.client.bl.providers.impl,net.pleso.framework.client.ui.controls.datagrid.interfaces,net.pleso.framework.client.bl.rb,net.pleso.framework.client.ui.controls.calendar,net.pleso.framework.client.bl.impl,net.pleso.framework.client.ui.custom.controls.datagrid,net.pleso.framework.client.dal.db,net.pleso.framework.client.bl.exceptions,net.pleso.framework.client.bl.forms.items"
+			source="1.4"
+			sourcepath="test;lib;src" 
+			splitindex="true" 
+			use="true" 
+			version="true">
+			
+			<doctitle><![CDATA[<h1>pleso.net: GWT-PF</h1>]]></doctitle>
+		    <bottom><![CDATA[<i>Copyright &#169; 2006-2007 pleso.net crew All Rights Reserved.</i>]]></bottom>
+		  </javadoc>
+    </target>
+	
+	<target name="release-framework" depends="package-framework, javadoc" description="Release framework like zip files">
+	  	<mkdir dir="release"/>
+	  	<zip destfile="release/gwt-pf.zip">
+	  	    <fileset file="gwt-pf-ui.jar"/>
+	  		<fileset file="gwt-pf-core.jar"/>
+	  		<fileset file="docs/CHANGELOG"/>
+	  		<fileset file="docs/INSTALL"/>
+	  		<fileset file="docs/LICENSE"/>
+	  		<fileset file="docs/README"/>
+	  	</zip>
+	  	<zip destfile="release/gwt-pf-doc.zip" basedir="docs/framework" />
+		<zip destfile="release/gwt-pf-src.zip">
+			<zipfileset dir="src/net/pleso/framework" prefix="src/net/pleso/framework"/>
+	  		<fileset file="docs/CHANGELOG"/>
+	  		<fileset file="docs/INSTALL"/>
+	  		<fileset file="docs/LICENSE"/>
+	  		<fileset file="docs/README"/>
+			<fileset file="gwt-pf.ant.xml"/>
+		</zip>
+	  	<delete>
+	  		<fileset file="gwt-pf-ui.jar"/>
+	  		<fileset file="gwt-pf-core.jar"/>
+	  	</delete>
+	 </target>
+
+</project>

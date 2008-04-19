@@ -1,0 +1,40 @@
+GWT Pleso Framework 0.2 beta
+This release works with GWT 1.4 (http://code.google.com/webtoolkit/).
+
+Project home page: http://gwt.org.ua/en/about/
+
+Developed by http://www.pleso.net/ team
+Naraz Leush, Anrij Scaluk, Oleksandr Pryymak 
+
+Distributed under LGPLv3
+
+CHECK OUT /docs FOLDER FOR MORE DOCUMENTATION
+
+=====
+
+GWT Pleso Framework is a high-level framework based on Google Web Toolkit (GWT) for creating visual AJAX database front-end user interfaces. It's some a kind of more complex CRUD framework.
+
+GWT Pleso Framework enables you to create automatically generated user interface based on business-logic classes.
+
+It provides control panel solutions for:
+    * database enterprise projects;
+    * other relation-based projects.
+    * web-site management; 
+
+It has a set of components for manipulating user data such as DataGrid, DataTextBox, DataComboBox etc.
+
+Project highlights
+    * clear, Java interfaces based model
+    * customizable automatically generated user forms
+    * user-input validation system
+    * flexible support for related data (child forms)
+    * authentication, authorization system
+    * error handling
+    * replaceable windows manager
+    * localization system
+    * paged data view
+    * text, numeric, date, time, enumeration, selection data controls 
+   
+Overview of GWT application architecture based on GWT-PF: http://gwt.org.ua/en/documentation/architecture/
+Online demo: http://gwt.org.ua/en/demo-app/
+Screenshots: http://gwt.org.ua/en/gallery/gwt-pf-demo-screenshots/

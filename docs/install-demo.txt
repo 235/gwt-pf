@@ -1,0 +1,40 @@
+1. Download and install GWT - at least version 1.3.3  (http://code.google.com/webtoolkit/download.html).
+
+2. Set up Eclipse for GWT use as described in our article Development on GWT with Eclipse in team - http://gwt.org.ua/en/blog/2007/10/20/eclipse-team/ 
+ Or do those steps: (tested under Eclipse 3.2):
+ - Select menu: Window - Preferences - Java - Build Path - Classpath Variables.
+ - Press "New".
+ - Enter variable name:  GWT_HOME.
+ - Enter path to gwt folder on out system.
+ - Save changes.
+
+3. Checkout GWT-PF demo project from repository:
+ - Select menu: File - New - Checkout Projects from SVN.
+ - Select repository: (unknown at this moment).
+ - Select folder: PlesoGWTFrameworkDemo.
+ - Press Finish.
+
+4. Deploying a database
+ Install PostgreSQL 8.2 server using "postgres" account name for default user (owner).
+ Upload demo_sql.sql script to create demo database.
+
+5. Launch demo.
+ - Select menu: Run - Run... - Java Application - demo.
+--for linux user--
+If you are linux user you have to change Classpath settings:
+ - Remove item "GWT_HOME/gwt-dev-windows.jar".
+ - Press "Advanced" button.
+ - Select "Add Classpath Variables".
+ - Select "GWT_HOME".
+ - Press "Extend" button.
+ - Choose file "gwt-dev-linux.jar".
+ - Save settings.
+--
+ - Press "Run" button. 
+
+6. Log in.
+
+If everything goes okey, you should get login form in host mode browser.
+Enter login and password for deployed database 
+(by default it must be user "postgres" and password you set during server installation).
+Enjoy simple demo.

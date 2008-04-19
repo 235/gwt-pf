@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="gwt-pf-demo" default="compile" basedir=".">
+  <description>
+    GWT-PF demo build file.
+  </description>
+  
+  <property name="gwt.home" location="C:/Program Files/eclipse/gwt"/>
+
+  <!-- set classpath -->
+  <path id="project.class.path">
+    <pathelement path="${java.class.path}/"/>
+    <pathelement path="${gwt.home}/gwt-user.jar"/>
+	<fileset dir="lib" includes="*.jar"/>
+    <!-- Additional dependencies (such as junit) go here -->
+  </path>
+	
+  <target name="clean">
+    <!-- Delete the bin directory tree -->
+	<delete>
+		<fileset dir="bin" includes="**/*"/>
+		<dirset dir="bin" includes="**/*"/>
+	</delete>
+  </target>
+
+  <target name="compile" depends="clean" description="Compile src to bin">
+    <mkdir dir="bin"/>
+    <javac srcdir="src:test" destdir="bin" includes="**" debug="on" debuglevel="lines,vars,source" source="1.5">
+      <classpath refid="project.class.path"/>
+    </javac>
+  </target>
+
+  <target name="package" depends="compile" description="Package up the project as a jar">
+    <jar destfile="demo.jar">
+      <fileset dir="bin">
+        <include name="**/*.class"/>
+      </fileset>
+      <!-- Get everything; source, modules, html files -->
+      <fileset dir="src">
+        <include name="**"/>
+      </fileset>
+      <fileset dir="test">
+        <include name="**"/>
+      </fileset>
+    </jar>
+  </target>
+  
+  <target name="compileJavaScript" description="Compile src to JavaScript www">
+    <java classname="com.google.gwt.dev.GWTCompiler" fork="true" failonerror="true" maxmemory="700m">
+         <arg value="-out"/>
+         <arg value="www"/> 
+		 <arg value="net.pleso.demo.demo"/> 
+         <classpath>
+           <pathelement path="${java.class.path}"/>
+		   <pathelement path="src"/>
+		   <pathelement path="${gwt.home}/gwt-user.jar"/>
+		   <pathelement path="${gwt.home}/gwt-dev-windows.jar"/>
+         </classpath>
+    </java>
+  </target>
+  
+  <target name="dist" depends="package, compileJavaScript" description="Full delpoy">
+    <mkdir dir="dist"/>
+	<mkdir dir="dist/WEB-INF"/>
+	<mkdir dir="dist/WEB-INF/lib"/>
+	<move file="demo.jar" todir="dist/WEB-INF/lib"/>
+	<copy todir="dist/WEB-INF/lib">
+            <fileset dir="lib"/>
+    </copy>
+	<copy todir="dist/WEB-INF/lib">
+            <fileset file="${gwt.home}/gwt-servlet.jar" />
+    </copy>
+	<copy file="src/net/pleso/demo/web.xml" todir="dist/WEB-INF"/>
+	<copy todir="dist">
+            <fileset dir="www/net.pleso.demo.demo"/>
+    </copy>
+  </target>
+  
+  <target name="javadoc">
+        <javadoc 
+			access="public" 
+			author="false"
+			destdir="docs/framework" 
+			windowtitle="pleso.net: GWT-PF project"
+			nodeprecated="false" 
+			nodeprecatedlist="false" 
+			noindex="false" 
+			nonavbar="false" 
+			notree="false" 
+			classpath="${gwt.home}/gwt-user.jar;"
+			packagenames="net.pleso.framework.client.dal.types,net.pleso.framework.client.bl.rb.impl,net.pleso.framework.client.ui.controls.tabcontrol,net.pleso.framework.client.bl.providers.impl,net.pleso.framework.client.bl.impl,net.pleso.framework.client.ui.controls.DataControls,net.pleso.framework.client.ui.controls.dataGrid,net.pleso.framework.client.ui.windows,net.pleso.framework.client.bl.providers,net.pleso.framework.client.bl.rb.columns,net.pleso.framework.client.ui.interfaces,net.pleso.framework.client.bl.rb,net.pleso.framework.client.ui.custom,net.pleso.framework.client.ui.controls,net.pleso.framework.client.bl.auth,net.pleso.framework.client.bl,net.pleso.framework.client.ui.controls.calendar,net.pleso.framework.client.dal.interfaces,net.pleso.framework.client.bl.rb.columns.impl,net.pleso.framework.client.util.regex,net.pleso.framework.client.bl.forms.items,net.pleso.framework.client.ui.controls.dataGrid.interfaces,net.pleso.framework.client.dal.dbtypes,net.pleso.framework.client.ui,net.pleso.framework.client.util,net.pleso.framework.client.localization,net.pleso.framework.client.bl.forms,net.pleso.framework.client.bl.forms.items.impl,net.pleso.framework.client.bl.actions,net.pleso.framework.client.dal"
+			source="1.4"
+			sourcepath="test;lib;src" 
+			splitindex="true" 
+			use="true" 
+			version="true">
+			
+			<doctitle><![CDATA[<h1>pleso.net: GWT-PF</h1>]]></doctitle>
+		    <bottom><![CDATA[<i>Copyright &#169; 2006-2007 pleso.net crew All Rights Reserved.</i>]]></bottom>
+		  </javadoc>
+    </target>
+
+</project>
